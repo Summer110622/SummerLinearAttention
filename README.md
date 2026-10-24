@@ -72,12 +72,13 @@ Adversarial near-duplicate keys with opposing values showed that soft retrieval 
 
 ## Research notes / 研究資料
 
+- [English / Japanese paper drafts, editable sources and build instructions](docs/paper/README.md)
 - [Research status and limitations](docs/research_status.md)
 - [NumPy reference implementation](summer_linear_attention/reference.py)
 - [Unit tests](tests/test_reference.py)
 - [Summer Delta Attention (SDA): implementation, papers and prior benchmark](https://github.com/Summer110622/SummerDeltaAttention)
 
-**No SLA manuscript, benchmark result CSV or reproducibility package has been committed to this repository yet.** A future benchmark PR should include the exact code, configurations, calibration/test seed split, raw results, paired confidence intervals, figure script and artifact-consistency tests before headline numerical claims appear here.
+**English and Japanese method/reference-implementation drafts are available in [docs/paper](docs/paper/README.md). They contain mathematical analysis and an unexecuted evaluation plan, not new benchmark results. No benchmark result CSV or experiment-reproducibility package has been committed yet.** A future benchmark PR should include the exact code, configurations, calibration/test seed split, raw results, paired confidence intervals, figure script and artifact-consistency tests before headline numerical claims appear here.
 
 ## Synthetic evaluation status (not a language-model benchmark)
 
