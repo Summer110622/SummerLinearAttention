@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "summer-linear-attention"
+version = "0.1.0"
+description = "Unreviewed NumPy reference for SLA external-memory linear attention"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24"]
+license = {text = "MIT"}
+authors = [{name = "summer"}]
+
+[tool.setuptools.packages.find]
+include = ["summer_linear_attention*"]
