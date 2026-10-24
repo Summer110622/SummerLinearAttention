@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+$if(japanese)$
+\setmainfont{Noto Serif CJK JP}[BoldFont={Noto Serif CJK JP Bold},ItalicFont={Noto Serif CJK JP}]
+\setsansfont{Noto Sans CJK JP}[BoldFont={Noto Sans CJK JP Bold}]
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip=0pt plus 0.4pt minus 0.1pt
+$else$
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+$endif$
+\setmonofont{Latin Modern Mono}[Scale=0.88]
+\usepackage{amsmath,amssymb,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=22pt,headsep=7mm,footskip=11mm]{geometry}
+\usepackage{graphicx,xcolor,booktabs,longtable,array,calc}
+\usepackage{fancyhdr,titlesec,enumitem,needspace}
+\usepackage{fvextra}
+\usepackage{xurl}
+\usepackage[unicode,colorlinks=true,linkcolor=black,urlcolor=LinkBlue,breaklinks=true]{hyperref}
+\definecolor{LinkBlue}{HTML}{164C73}
+\definecolor{RuleGrey}{HTML}{C5C9CD}
+\definecolor{Muted}{HTML}{5E6368}
+\hypersetup{pdftitle={$title$},pdfauthor={$for(author)$$author$$sep$; $endfor$},pdfsubject={Technical manuscript draft on Summer Linear Attention}}
+\urlstyle{same}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily Summer Linear Attention}
+$if(japanese)$
+\fancyhead[R]{\footnotesize\sffamily 草稿}
+$else$
+\fancyhead[R]{\footnotesize\sffamily DRAFT}
+$endif$
+\fancyfoot[C]{\footnotesize\sffamily\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{RuleGrey}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\footnotesize\sffamily\thepage}\renewcommand{\headrulewidth}{0pt}}
+\setcounter{secnumdepth}{-1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt plus 1pt minus 0.5pt}
+\setlength{\emergencystretch}{2em}
+\frenchspacing
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
+$if(japanese)$
+\AtBeginDocument{\fontsize{10}{15.3}\selectfont}
+\titleformat{\section}{\large\sffamily\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\sffamily\bfseries}{}{0pt}{}
+$else$
+\AtBeginDocument{\fontsize{10.5}{14}\selectfont}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+$endif$
+\titlespacing*{\section}{0pt}{16pt plus 3pt minus 2pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt plus 2pt minus 2pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{8pt plus 1pt}{3pt}
+\setlist{leftmargin=1.7em,itemsep=2pt,parsep=0pt,topsep=4pt}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcommand{\passthrough}[1]{#1}
+\newcommand{\pandocbounded}[1]{#1}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,fontsize=\small,commandchars=\\\{\}}
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere,fontsize=\small}
+\setlength{\LTpre}{5pt}
+\setlength{\LTpost}{7pt}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$for(header-includes)$
+$header-includes$
+$endfor$
+\begin{document}
+\thispagestyle{plain}
+\begin{center}
+$if(japanese)$
+{\fontsize{19}{27}\selectfont\bfseries $title$\par}
+$else$
+{\fontsize{21}{25}\selectfont\bfseries $title$\par}
+$endif$
+$if(subtitle)$
+\vspace{5pt}{\large $subtitle$\par}
+$endif$
+\vspace{10pt}
+$for(author)$
+{\normalsize $author$\par}
+$endfor$
+$if(date)$
+\vspace{3pt}{\small $date$\par}
+$endif$
+\vspace{5pt}
+$if(japanese)$
+{\small\sffamily\color{Muted} 技術論文草稿 / 未査読\par}
+$else$
+{\small\sffamily\color{Muted} Technical manuscript draft / Not peer reviewed\par}
+$endif$
+\end{center}
+\vspace{3pt}
+$body$
+\end{document}
